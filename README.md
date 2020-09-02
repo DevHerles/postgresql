@@ -1,6 +1,6 @@
 # PostgreSQL
 
-Most useful commands for PostgreSQL
+Most useful commands for `PostgreSQL`
 
 ### 1. Allow Remote Connections
 
@@ -22,7 +22,7 @@ To:
 listen_addresses = '*'
 ```
 
-Then edit the postgresql host based authentication (hba) file located at:
+Then edit the `postgresql` host based authentication (hba) file located at:
 
 ```bash
 # vim /etc/postgresql/12/main/pg_hba.conf
@@ -35,7 +35,7 @@ host    all             all              0.0.0.0/0                       md5
 host    all             all              ::/0                            md5
 ```
 
-And finally, don't forget restart postgresql service:
+Restart `postgresql` service:
 
 ```bash
 # sudo systemctl restart postgresql
@@ -54,6 +54,8 @@ Type "help" for help.
 
 postgres=#
 postgres=# CREATE ROLE odoo WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'odoo';
+CREATE ROLE
+postgres=#
 ```
 
 ### 3. Drop `role`
@@ -82,8 +84,26 @@ postgres=# DROP USER odoo;
 
 ### 4. List existing roles
 
-```bash
+```psql
 postgres=# SELECT rolname FROM pg_roles;
+```
+
+```bash
+          rolname
+---------------------------
+ postgres
+ pg_monitor
+ pg_read_all_settings
+ pg_read_all_stats
+ pg_stat_scan_tables
+ pg_read_server_files
+ pg_write_server_files
+ pg_execute_server_program
+ pg_signal_backend
+ odoo
+(10 rows)
+
+postgres=#
 ```
 
 ### 5. Create database
