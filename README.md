@@ -354,6 +354,12 @@ postgres@HP:~$ psql -f samu_server_db_backup.bak postgres
 postgres@HP:~$
 ```
 
+#### 4.6.3 Restore from `psql` client
+
+```bash
+❯ psql -U postgres --file docker_db_samu.bak
+```
+
 ## 5. Manage tables
 
 ### 5.1. Create a `table`
